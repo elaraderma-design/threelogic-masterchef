@@ -10,3 +10,102 @@
 .fallback-emoji{display:none}
 
 .primary:disabled{opacity:.42;filter:grayscale(.65);cursor:not-allowed;border-color:#655b4c;color:#b6a994;background:#302b2b}
+/* Perbaikan lapisan gambar dan label karakter Master Chef.
+   Tambahkan isi ini di bagian PALING BAWAH index.css. */
+
+.character-art {
+  position: relative;
+  isolation: isolate;
+}
+
+.big-character-image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: 300px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.role-badge {
+  position: absolute;
+  z-index: 3;
+  bottom: 9px;
+  left: 9px;
+  max-width: calc(100% - 18px);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.art-glow {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.big-emoji {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 640px) {
+  .character-art {
+    min-height: 180px;
+  }
+
+  .big-character-image {
+    max-height: 260px;
+  }
+}
+
+
+/* FINAL FIX: label "KAPTEN DAPUR" must always sit above character artwork */
+.character-art {
+  position: relative;
+  isolation: isolate;
+}
+
+.character-art .art-glow {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.character-art .big-character-image,
+.character-art .big-emoji {
+  position: relative;
+  z-index: 1;
+}
+
+.character-art .big-character-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: 300px;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.character-art .role-badge {
+  position: absolute;
+  z-index: 10;
+  bottom: 9px;
+  left: 9px;
+  max-width: calc(100% - 18px);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .character-art {
+    min-height: 180px;
+  }
+
+  .character-art .big-character-image {
+    max-height: 260px;
+  }
+}
